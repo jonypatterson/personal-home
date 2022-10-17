@@ -7,7 +7,7 @@ const Greeting = ({ greeting, setGreeting, name, setName }) => {
       console.log("Check:::")
       console.log(check)
       if (check) {
-        setName(check)
+        setName(JSON.parse(check))
       } else {
         setName("")
         localStorage.setItem("name", JSON.stringify(""))

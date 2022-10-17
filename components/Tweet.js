@@ -12,7 +12,7 @@ const Tweet = ({ tweet }) => {
           width="40px"
           height="40px"
         />
-        <div>
+        <div className="ml-3">
           <div className="text-pink-500 text-xs">{tweet.created_at}</div>
           <div className="text-xs font-bold">{tweet.username}</div>
         </div>
