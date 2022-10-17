@@ -102,7 +102,7 @@ const Settings = ({
         </div>
         <div>
           <div className="pt-5">
-            <h2 className="mb-2">What's your name?</h2>
+            <h2 className="mb-2">What&apos;s your name?</h2>
 
             <input
               className="py-2 pl-3 rounded-md text-gray-700"
