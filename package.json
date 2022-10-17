@@ -1,7 +1,7 @@
 {
   "name": "personal-page",
   "version": "0.1.0",
-  "main": "main.js",
+  "main": "server.js",
   "private": true,
   "scripts": {
     "dev": "next dev",
