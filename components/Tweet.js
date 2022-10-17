@@ -1,13 +1,16 @@
 import React from "react"
+import Image from "next/image"
 
 const Tweet = ({ tweet }) => {
   return (
     <div className="mb-5 font-light text-sm p-5 rounded-md snap-center">
       <div className="flex items-center mb-3">
-        <img
+        <Image
           src={tweet.profile_image_url}
           alt="profile pic"
-          className=" rounded-full w-10 h-10 mr-3"
+          className=" rounded-full mr-4"
+          width="40px"
+          height="40px"
         />
         <div>
           <div className="text-pink-500 text-xs">{tweet.created_at}</div>
