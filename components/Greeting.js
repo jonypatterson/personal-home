@@ -4,8 +4,10 @@ const Greeting = ({ greeting, setGreeting, name, setName }) => {
   useEffect(() => {
     const setNameHandler = () => {
       const check = localStorage.getItem("name")
+      console.log("Check:::")
+      console.log(check)
       if (check) {
-        setName(JSON.parse(check))
+        setName(check)
       } else {
         setName("")
         localStorage.setItem("name", JSON.stringify(""))

@@ -24,6 +24,8 @@ const News = ({ news, setNews, newsSearch, setNewsSearch }) => {
 
   useEffect(() => {
     const check = localStorage.getItem("newsSearch")
+    console.log("Check:")
+    console.log(check)
     const defaultNews = "cybersecurity"
     if (check) {
       if (JSON.parse(check) === "") {
