@@ -58,12 +58,6 @@ const News = ({ news, setNews, newsSearch, setNewsSearch }) => {
 
   return (
     <div className="h-3/4 w-full ">
-      <h2 className="mb-3 flex justify-center gap-3">
-        <span className="underline decoration-pink-500 decoration-2 mb-5">
-          {newsSearch}
-        </span>{" "}
-        News
-      </h2>
       <div className="flex flex-col xl:flex-row w-full justify-center md:gap-10 text-lg">
         {news.map((article) => (
           <NewsArticle

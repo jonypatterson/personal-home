@@ -44,9 +44,9 @@ const Tweets = ({ tweetSearch, setTweetSearch, setTweets, tweets }) => {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col leading-relaxed divide-y divide-gray-300 divide-opacity-25 tracking-wide">
       {tweets.map((tweet) => (
-        <Tweet key={tweet.id} tweet={tweet} />
+        <Tweet key={tweet.id} tweet={tweet} className="" />
       ))}
     </div>
   )

@@ -96,13 +96,13 @@ const Settings = ({
 
   return (
     <div
-      className={`fixed pt-5 pl-5 pr-5 top-0 left-0 w-full lg:w-1/2 xl:w-1/3 bg-gray-400/95 text-white h-screen shadow-sm overflow-auto transition-all duration-500 ease-in-out ${
+      className={`fixed pt-5 pl-5 pr-5 top-0 left-0 w-full lg:w-1/2 xl:w-1/3 bg-pink-500 to-black text-white h-screen shadow-sm overflow-auto transition-all duration-500  ${
         settingsStatus
           ? "opacity-100 translate-x-0 z-1"
           : "opacity-0 -translate-x-80 -z-10"
       }`}
     >
-      <div className="px-2 font-body">
+      <div className="px-2 font-display">
         <div className="flex items-center justify-between mb-4 text-white">
           <h1 className=" text-xl font-medium">Settings</h1>
           <GrClose className="link" onClick={setSettingStatusHandler} />
@@ -134,7 +134,7 @@ const Settings = ({
                   onChange={updateTweetSearchHandler}
                 />
                 <button
-                  className=" bg-secondary rounded-md p-2 ml-2 text-white"
+                  className=" bg-black rounded-md p-2 ml-2 text-white"
                   type="submit"
                 >
                   Search
@@ -153,7 +153,7 @@ const Settings = ({
                   onChange={updateNewsHandler}
                 />
                 <button
-                  className=" bg-secondary rounded-md p-2 ml-2 text-white"
+                  className=" bg-black rounded-md p-2 ml-2 text-white"
                   type="submit"
                 >
                   Search
