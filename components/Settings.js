@@ -19,11 +19,15 @@ const Settings = ({
   // Functions
   const updateTweetSearchHandler = (e) => {
     setTweetSearch(e.target.value)
+    localStorage.setItem(
+      "searchTerm",
+      JSON.stringify(encodeURIComponent(tweetSearch.trim()))
+    )
   }
 
   const refreshNewsHandler = (e) => {
     if (e.target.value === "") {
-      setTweetSearch("cybersecurity")
+      setNewsSearch("cybersecurity")
     }
     e.preventDefault()
     axios
@@ -46,6 +50,7 @@ const Settings = ({
 
   const updateNewsHandler = (e) => {
     setNewsSearch(e.target.value)
+    localStorage.setItem("newsSearch", JSON.stringify(e.target.value))
   }
 
   const changeNameHandler = (e) => {

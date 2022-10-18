@@ -1,7 +1,4 @@
-import Image from "next/image"
-import Link from "next/link"
-
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 
 import { FaCog } from "react-icons/fa"
 import Head from "next/head"
@@ -64,7 +61,7 @@ export default function Home() {
               </li>
             </ul>
 
-            <ul className="flex flex-col text-center sm:text-right font-sans">
+            <ul className="flex flex-col text-center sm:text-right font-sans mb-8 sm:mb-5">
               <div
                 className="justify-center sm:justify-end flex mb-2"
                 onClick={setSettingStatusHandler}
@@ -91,8 +88,8 @@ export default function Home() {
           <div className="bg-background h-6/6 md:h-5/6 flex flex-col md:flex-row w-full">
             {/* tweet div */}
             <div className="bg-background w-full lg:w-1/2 xl:w-1/3 h-full max-h-full overflow-y-auto md:mr-5 snap-y">
-              <h4 className="">
-                <span className="pl-5 underline decoration-pink-500 decoration-2">
+              <h4 className="flex justify-center gap-3">
+                <span className="underline decoration-pink-500 decoration-2">
                   {decodeURIComponent(tweetSearch)}
                 </span>{" "}
                 <span className="">tweets</span>
