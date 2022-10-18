@@ -87,7 +87,7 @@ export default function Home() {
           </nav>
           <div className="h-6/6 md:h-5/6 flex flex-col md:flex-row w-full">
             {/* tweet div */}
-            <div className=" rounded-lg w-full lg:w-1/2 xl:w-1/3 h-full max-h-full overflow-y-auto md:mr-5 snap-y py-5">
+            <div className=" rounded-lg w-full lg:w-1/2 xl:w-1/3 h-full max-h-full overflow-y-auto md:mr-5 snap-y pt-5">
               <h4 className="flex justify-center gap-3 font-display">
                 <span
                   onClick={setSettingStatusHandler}
