@@ -11,7 +11,7 @@ import News from "../components/News"
 
 export default function Home() {
   // State
-  const [name, setName] = useState("")
+  const [name, setName] = useState("you")
   const [temp, setTemp] = useState("")
   const [location, setLocation] = useState("")
   const [xCoord, setXCoord] = useState("")
@@ -45,12 +45,12 @@ export default function Home() {
         <section className="p-5 h-full w-full">
           <nav className="bg-background">
             <ul className="items-center sm:flex sm:text-right">
-              <li className="flex justify-center items-center">
+              {/* <li className="flex justify-center items-center">
                 <img
                   className="w-10 h-10 rounded-full mx-2"
                   src="https://www.gravatar.com/avatar/fa018b4dfe1c5ad9ec659e4be2e2c887"
                 />
-              </li>
+              </li> */}
               <li className="">
                 <Greeting
                   greeting={greeting}

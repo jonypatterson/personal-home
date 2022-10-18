@@ -19,10 +19,6 @@ const Settings = ({
   // Functions
   const updateTweetSearchHandler = (e) => {
     setTweetSearch(e.target.value)
-    localStorage.setItem(
-      "searchTerm",
-      JSON.stringify(encodeURIComponent(tweetSearch.trim()))
-    )
   }
 
   const refreshNewsHandler = (e) => {
@@ -30,27 +26,38 @@ const Settings = ({
       setNewsSearch("cybersecurity")
     }
     e.preventDefault()
-    axios
-      .get(`/api/news-search?search=${newsSearch}`)
-      .then((data) => {
-        if (data) {
-          console.log("THIS IS THE DATA FROM REFRESH")
-          console.log(data.data)
-          setNews(data.data)
-          localStorage.setItem("news", JSON.stringify(data.data))
-          localStorage.setItem("news-time", JSON.stringify(new Date()))
-        } else {
-          setNews([])
-        }
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    const cachedSearch = localStorage.getItem("newsSearch")
+    console.log("Cached news search")
+    console.log(cachedSearch)
+    if (newsSearch === JSON.parse(cachedSearch)) {
+      console.log("New = old. Will not search again")
+      localStorage.setItem("newsSearch", JSON.stringify(newsSearch))
+      setSettingsStatus(!settingsStatus)
+    } else {
+      console.log("GEtting new data...")
+      axios
+        .get(`/api/news-search?search=${newsSearch}`)
+        .then((data) => {
+          if (data) {
+            console.log("THIS IS THE DATA FROM REFRESH")
+            console.log(data.data)
+            setNews(data.data)
+            localStorage.setItem("news", JSON.stringify(data.data))
+            localStorage.setItem("news-time", JSON.stringify(new Date()))
+            localStorage.setItem("newsSearch", JSON.stringify(newsSearch))
+            setSettingsStatus(!settingsStatus)
+          } else {
+            setNews([])
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
   }
 
   const updateNewsHandler = (e) => {
     setNewsSearch(e.target.value)
-    localStorage.setItem("newsSearch", JSON.stringify(e.target.value))
   }
 
   const changeNameHandler = (e) => {

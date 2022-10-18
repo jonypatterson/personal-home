@@ -4,29 +4,40 @@ import axios from "axios"
 
 const News = ({ news, setNews, newsSearch, setNewsSearch }) => {
   const fetchNews = () => {
-    axios
-      .get(`/api/news-search`)
-      .then((data) => {
-        if (data) {
-          console.log("THIS IS THE DATA")
-          console.log(data.data)
-          setNews(data.data)
-          localStorage.setItem("news", JSON.stringify(data.data))
-          localStorage.setItem("news-time", JSON.stringify(new Date()))
-        } else {
-          setNews([])
-        }
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    const cachedNews = localStorage.getItem("newsSearch")
+    if (cachedNews === newsSearch) {
+      // cached is same as new search
+      console.log("same news found...")
+    } else {
+      axios
+        .get(`/api/news-search`)
+        .then((data) => {
+          if (data) {
+            console.log("THIS IS THE DATA")
+            console.log(data.data)
+            setNews(data.data)
+            localStorage.setItem("news", JSON.stringify(data.data))
+            localStorage.setItem("news-time", JSON.stringify(new Date()))
+          } else {
+            setNews([])
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
   }
 
   useEffect(() => {
+    const defaultNews = "cybersecurity"
     const check = localStorage.getItem("newsSearch")
     console.log("Check:")
     console.log(check)
-    const defaultNews = "cybersecurity"
+    console.log(typeof check)
+    if (check === "undefined") {
+      check = JSON.stringify(defaultNews)
+      localStorage.setItem("newsSearch", JSON.stringify(defaultNews))
+    }
     if (check) {
       if (JSON.parse(check) === "") {
         setNewsSearch(defaultNews)

@@ -9,8 +9,8 @@ const Greeting = ({ greeting, setGreeting, name, setName }) => {
       if (check) {
         setName(JSON.parse(check))
       } else {
-        setName("")
-        localStorage.setItem("name", JSON.stringify(""))
+        setName("you")
+        localStorage.setItem("name", JSON.stringify("you"))
       }
     }
     const timeOfDayGreeting = () => {
@@ -30,7 +30,7 @@ const Greeting = ({ greeting, setGreeting, name, setName }) => {
   }, [])
 
   return (
-    <h1 className="mt-2 pl-2 pr-2 text-center sm:text-left font-medium text-xl font-sans uppercase">
+    <h1 className="mt-2 md:pl-5 pr-2 text-center sm:text-left font-medium text-xl font-sans uppercase">
       {greeting}{" "}
       <span className="underline decoration-pink-500 decoration-2">{name}</span>
     </h1>
